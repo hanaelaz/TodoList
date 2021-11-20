@@ -1,0 +1,84 @@
+body {
+    background: #fff;
+    color: #333;
+    font-family: Lato, sans-serif;
+    background-color:#e4e4e4;
+}
+.container {
+    display: block;
+    width: 400px;
+    margin: 10px auto 100px;
+    background-color:#fff;
+    padding:0px 10px 10px 10px;
+    border-radius:10px;
+    box-shadow: 6px 6px 5px grey;
+}
+
+h2 {
+    text-align:center;
+    padding-top:10px;
+    margin-bottom:0px;
+}
+
+table {
+    margin: 0;
+    padding: 0;
+    width:100%;
+}
+
+tr * {
+    float: left;
+}
+
+/* Heading */
+
+h3 {
+    color: #333;
+    font-weight: 700;
+    font-size: 15px;
+    border-bottom: 2px solid #333;
+    padding: 20px 0 10px;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+}
+th{
+    width: 100%;
+}
+
+/* Task list */
+
+tr {
+    overflow: hidden;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+tr > td > input[type="checkbox"] {
+    margin: 0 10px;
+    position: relative;
+    top: 30px;
+}
+
+tr > td > p {
+    font-size: 18px;
+    line-height: 40px;
+    width: 237px;
+    padding: 0 0 0 11px;
+}
+
+
+
+/* Completed */
+
+#completed-tasks p {
+    text-decoration: line-through;
+    color: #888;
+}
+
+
+
+
+
+

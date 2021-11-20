@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Todos List </title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>My Todo List</h2>
+        <h3>Todos</h3>
+        <table>
+            <tr th:each="todo : ${todoItemList}"
+                th:if="${todo.statue} == false"
+                id="incomplete-task">
+                <td>
+                    <input type="checkbox">
+                    <p th:text="${todo.titre}">titre</p>
+                </td>
+            </tr>
+            <th>
+                <h3>Completed</h3>
+            </th>
+            <tr th:each="todo : ${todoItemList}"
+                th:if="${todo.statue} == true"
+                id="completed-tasks">
+                <td>
+                    <input type="checkbox" checked>
+                    <p th:text="${todo.titre}">titre</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
