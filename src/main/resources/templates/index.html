@@ -1,20 +1,24 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title> Todos List </title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
+
+
 <body>
     <div class="container">
         <h2>My Todo List</h2>
         <h3>Todos</h3>
-        <table>
+        <table id="tab">
             <tr th:each="todo : ${todoItemList}"
                 th:if="${todo.statue} == false"
                 id="incomplete-task">
                 <td>
-                    <input type="checkbox">
-                    <p th:text="${todo.titre}">titre</p>
+                    <input type="checkbox" th:data="${todo.id}" class="myCheckbox"  >
+                    <p th:text="${todo.titre}" class="desc">titre</p>
                 </td>
             </tr>
             <th>
@@ -24,11 +28,27 @@
                 th:if="${todo.statue} == true"
                 id="completed-tasks">
                 <td>
-                    <input type="checkbox" checked>
-                    <p th:text="${todo.titre}">titre</p>
+                    <input type="checkbox"  checked th:data="${todo.id}"  class="myCheckbox" >
+                    <p th:text="${todo.titre}" class="desc" >titre</p>
                 </td>
             </tr>
+
         </table>
     </div>
+
+
+
+    <script>
+        $('.myCheckbox').change(function(e){
+            var id = $(this).attr("data");
+            $.ajax({
+                type:"PUT",
+                url: '/edit/' + id,
+            }).done(function () {
+                location.reload()
+            })
+        });
+    </script>
+
 </body>
 </html>

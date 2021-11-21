@@ -47,4 +47,5 @@ public class TodoItem {
     public void setStatue(boolean statue) {
         this.statue = statue;
     }
+
 }

@@ -4,8 +4,7 @@ body {
     font-family: Lato, sans-serif;
     background-color:#e4e4e4;
 }
-.container {
-    display: block;
+.container,#pop_desc {
     width: 400px;
     margin: 10px auto 100px;
     background-color:#fff;
@@ -13,6 +12,7 @@ body {
     border-radius:10px;
     box-shadow: 6px 6px 5px grey;
 }
+
 
 h2 {
     text-align:center;
