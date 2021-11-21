@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<form name="myForm" action="#" th:action="@{/add}" th:object="${todoIdItem}" method="POST" onsubmit="return validateFrom()" >
+
+<table>
+    <tr>
+      <td class="title">Title</td>
+      <td class="espace">:</td>
+      <td><input class="contenu_input" type="text" name="titre" th:field="${todoIdItem.titre}" /></td>
+    </tr>
+    <tr>
+        <td class="error"></td>
+        <td class="err_contenu"  id ="error">The title should not be empty </td>
+    </tr>
+    <tr class="description">
+      <td class="title">Description</td>
+      <td class="espace">:</td>
+      <td class="details">
+        <textarea class="contenu" th:field="${todoIdItem.description}">description</textarea>
+      </td>
+    </tr>
+    <tr class="btn">
+      <td ><button type="submit" class="save"><i class="bi bi-check">Add</i></button></td>
+      <td> <button type="button" id="btn1" class="go_back"><i class="bi bi-arrow-left-short"></i>Return</button></td>
+    </tr>
+</table>
+</form>
+
+<script>
+    function validateFrom(){
+        var x =document.forms["myForm"]["titre"].value;
+        if(x==""){
+            document.getElementById("error").style.display="block";
+            return false;
+        }
+    }
+    $('.go_back').click(function(){
+        location.reload();
+    });
+</script>
+
+
+
+
+
+</html>

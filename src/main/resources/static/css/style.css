@@ -21,9 +21,10 @@ h2 {
 }
 
 table {
-    margin: 0;
+
     padding: 0;
     width:100%;
+    margin-top: 20px;
 }
 
 tr * {
@@ -52,7 +53,7 @@ th{
 tr {
     overflow: hidden;
     padding: 20px 0;
-    border-bottom: 1px solid #eee;
+
 }
 
 tr > td > input[type="checkbox"] {
@@ -64,8 +65,9 @@ tr > td > input[type="checkbox"] {
 tr > td > p {
     font-size: 18px;
     line-height: 40px;
-    width: 237px;
+    width: 345px;
     padding: 0 0 0 11px;
+    border-radius: 10px;
 }
 
 
@@ -93,17 +95,19 @@ tr > td > p {
     height: 100px;
     word-wrap: break-word;
 }
-.button {
+button {
     transition-duration: 0.4s;
     text-align: center;
-    font-size: 20px;
+    font-size: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px 20px;
+    border-radius: 10px;
+    border : 0px;
 }
 
-.button:hover {
+.go_back:hover {
     background-color: #343232;
     color: white;
 }
@@ -112,9 +116,62 @@ tr > td > p {
     justify-content: center;
     float: inherit;
 }
+.addButton:hover {
+    background-color: #cbdffc;
+    color: white;
+}
+.save:hover{
+    background-color: #e7fad5;
+    color: white;
+}
+.error{
+    width:90px;
+}
+.err_contenu{
+    display:none;
+    color :red;
+    font-size: 12px;
+    margin-left: 22px;
+    font-family: serif;
+}
+.contenu{
+    width: 280px;
+    height: 100px;
+}
+.contenu_input{
+    width: 276px;
+    height: 20px;
+}
 
+#btn1{
+    display: flex;
+    justify-content: center;
+    float: inherit;
+    margin-left: 142px;
+}
 
+.desc:hover{
+    background-color: #f1f1f1;
+    cursor: pointer;
 
+}
+
+.myCheckbox {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.myCheckbox:checked {
+    background-color: #e2facc;
+}
 
 
 

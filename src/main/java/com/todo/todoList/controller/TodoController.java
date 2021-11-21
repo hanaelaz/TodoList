@@ -18,6 +18,8 @@ public class TodoController {
 
     @Autowired
     TodoRepo todoRepo;
+
+    //Pour afficher la liste des tâches
     @GetMapping(value ="/")
     public ModelAndView getAllItems (Model model ) {
         List<TodoItem> todoItemList=(List<TodoItem>) todoRepo.findAll();
@@ -27,7 +29,7 @@ public class TodoController {
         return modelAndView;
     }
 
-
+    //Pour modifier statue
     @PutMapping(value ="/edit/{id}")
     public void editState(@PathVariable int id){
         List<TodoItem> todoItemList=(List<TodoItem>) todoRepo.findAll();
@@ -40,17 +42,16 @@ public class TodoController {
             }
             todoRepo.save(item);
         }
-
     }
 
+    //Pour ajouter une nouvelle tâche
     @PostMapping(value ="/add")
     public void save(@Validated @NotNull @ModelAttribute("todoIdItem") TodoItem todoItem, HttpServletResponse response) throws IOException {
         todoRepo.save(todoItem);
         response.sendRedirect("/");
-
-
     }
 
+    //Pour afficher details d'une tâche selon id
     @RequestMapping(value ="/getByID/{id}")
     public ModelAndView getByID(@PathVariable int id,Model model){
 
@@ -58,7 +59,15 @@ public class TodoController {
         ModelAndView modelAndView = new ModelAndView ( );
         model.addAttribute("todoIdItem",todoIdItem);
         modelAndView.setViewName ( "popUp" );
-
+        return modelAndView;
+    }
+    //Pour afficher formulaire d'ajout
+    @RequestMapping(value ="/addPopUp")
+    public ModelAndView getPopUP(Model model){
+        TodoItem todoIdItem = new TodoItem();
+        ModelAndView modelAndView = new ModelAndView ( );
+        model.addAttribute("todoIdItem",todoIdItem);
+        modelAndView.setViewName ( "addPopUp" );
         return modelAndView;
     }
 

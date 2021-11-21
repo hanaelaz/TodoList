@@ -1,16 +1,16 @@
 package com.todo.todoList.model;
 
-import com.sun.istack.NotNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class TodoItem {
 
     private int id;
-    @NotNull
+    @NotEmpty(message = "The title should not be empty")
     private String titre;
     private String description;
     private boolean statue;
