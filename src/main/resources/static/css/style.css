@@ -76,6 +76,43 @@ tr > td > p {
     text-decoration: line-through;
     color: #888;
 }
+.description{
+    display:flex;
+}
+.title{
+    width:100px;
+    font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+.espace{
+    width:10px;
+}
+.details{
+    width: 285px;
+    height: 100px;
+    word-wrap: break-word;
+}
+.button {
+    transition-duration: 0.4s;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+.button:hover {
+    background-color: #343232;
+    color: white;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    float: inherit;
+}
+
 
 
 

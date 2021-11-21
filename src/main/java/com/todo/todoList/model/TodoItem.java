@@ -12,15 +12,17 @@ public class TodoItem {
     private int id;
     @NotNull
     private String titre;
+    private String description;
     private boolean statue;
 
     public TodoItem() {
     }
 
-    public TodoItem(int id, String titre, boolean statue) {
+    public TodoItem(int id, String titre, boolean statue, String description) {
         this.id = id;
         this.titre = titre;
         this.statue = statue;
+        this.description = description;
     }
     @Id
     @GeneratedValue
@@ -48,4 +50,11 @@ public class TodoItem {
         this.statue = statue;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

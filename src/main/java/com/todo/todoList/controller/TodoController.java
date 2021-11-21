@@ -9,6 +9,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -42,10 +44,23 @@ public class TodoController {
     }
 
     @PostMapping(value ="/add")
-    public TodoItem save(@Validated @NotNull @RequestBody TodoItem todoItem){
-        return todoRepo.save(todoItem);
+    public void save(@Validated @NotNull @ModelAttribute("todoIdItem") TodoItem todoItem, HttpServletResponse response) throws IOException {
+        todoRepo.save(todoItem);
+        response.sendRedirect("/");
+
+
     }
 
+    @RequestMapping(value ="/getByID/{id}")
+    public ModelAndView getByID(@PathVariable int id,Model model){
+
+        TodoItem todoIdItem = todoRepo.getById(id);
+        ModelAndView modelAndView = new ModelAndView ( );
+        model.addAttribute("todoIdItem",todoIdItem);
+        modelAndView.setViewName ( "popUp" );
+
+        return modelAndView;
+    }
 
 
 

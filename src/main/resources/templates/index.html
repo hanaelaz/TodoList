@@ -12,13 +12,14 @@
     <div class="container">
         <h2>My Todo List</h2>
         <h3>Todos</h3>
+        <div class="popContainer">
         <table id="tab">
             <tr th:each="todo : ${todoItemList}"
                 th:if="${todo.statue} == false"
                 id="incomplete-task">
                 <td>
                     <input type="checkbox" th:data="${todo.id}" class="myCheckbox"  >
-                    <p th:text="${todo.titre}" class="desc">titre</p>
+                    <p th:text="${todo.titre}"  th:data="${todo.id}" class="desc">titre</p>
                 </td>
             </tr>
             <th>
@@ -29,11 +30,11 @@
                 id="completed-tasks">
                 <td>
                     <input type="checkbox"  checked th:data="${todo.id}"  class="myCheckbox" >
-                    <p th:text="${todo.titre}" class="desc" >titre</p>
+                    <p th:text="${todo.titre}" th:data="${todo.id}" class="desc" >titre</p>
                 </td>
             </tr>
-
         </table>
+    </div>
     </div>
 
 
@@ -47,6 +48,10 @@
             }).done(function () {
                 location.reload()
             })
+        });
+        $('.desc').click(function(){
+            var id = $(this).attr("data");
+            $("#tab").load("/getByID/"+id);
         });
     </script>
 
